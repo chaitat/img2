@@ -1,8 +1,6 @@
 cask "img2" do
-  # sha256 must be updated after each release
-  # run: shasum -a 256 img2.dmg
   version "1.0.0"
-  sha256 "UPDATE_WITH_ACTUAL_SHA256"
+  sha256 "513aa559e8316c122593e9d70ddc3102764b5ae83870db9815794b85db75fcd2"
 
   url "https://github.com/chaitat/img2/releases/download/v#{version}/img2.dmg"
   name "img2"

@@ -31,7 +31,7 @@ jobs:
       
       - name: Build app
         run: |
-          pyinstaller --windowed --name img2 img2.py
+          pyinstaller --windowed --name img2 --icon icons/icon.icns img2.py
       
       - name: Create DMG
         run: |

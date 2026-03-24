@@ -104,7 +104,7 @@ class Img2App(QWidget):
         self.setFixedSize(480, 400)
         self.setAcceptDrops(True)
 
-        icon_path = os.path.join(os.path.dirname(__file__), "app-icon.jpg")
+        icon_path = os.path.join(os.path.dirname(__file__), "icons", "icon.icns")
         if os.path.exists(icon_path):
             self.setWindowIcon(QIcon(icon_path))
 
