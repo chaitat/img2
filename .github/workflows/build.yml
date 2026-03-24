@@ -28,10 +28,14 @@ jobs:
           pyinstaller --windowed --name img2 img2.py
       
       - name: Create DMG
-        uses: create-dmg@v1
-        with:
-          app-path: dist/img2.app
-          output-path: img2.dmg
+        run: |
+          brew install create-dmg
+          create-dmg \
+            --volname "img2" \
+            --icon "app-icon.jpg" \
+            --app-drop-link 425 185 \
+            "img2.dmg" \
+            "dist/img2.app"
       
       - name: Upload Release
         uses: softprops/action-gh-release@v2
