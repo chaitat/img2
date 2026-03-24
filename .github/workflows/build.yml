@@ -5,6 +5,9 @@ on:
     tags:
       - 'v*'
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build:
     runs-on: macos-latest
@@ -29,10 +32,9 @@ jobs:
       
       - name: Create DMG
         run: |
-          brew install create-dmg
+          brew install create-dmg || true
           create-dmg \
             --volname "img2" \
-            --icon "app-icon.jpg" \
             --app-drop-link 425 185 \
             "img2.dmg" \
             "dist/img2.app"
