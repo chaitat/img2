@@ -5,8 +5,7 @@ Homebrew tap for img2 image converter.
 ## How do I install these formulae?
 
 ```bash
-brew tap chaitat/img2
-brew install img2
+brew install chaitat/homebrew-img2/img2
 ```
 
 ## Update SHA256
