@@ -7,7 +7,7 @@ Image converter with drag & drop support.
 ### Homebrew (recommended)
 
 ```bash
-brew tap username/img2
+brew tap chaitat/homebrew-img2
 brew install img2
 ```
 
