@@ -18,8 +18,7 @@ Image converter with drag & drop support.
 ### Homebrew (recommended)
 
 ```bash
-brew tap chaitat/homebrew-img2
-brew install img2
+brew install chaitat/homebrew-img2/img2
 ```
 
 This will automatically install ImageMagick if not already installed.
