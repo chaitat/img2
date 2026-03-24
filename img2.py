@@ -17,6 +17,7 @@ from PyQt6.QtGui import QIcon
 
 class ConvertWorker(QThread):
     progress_signal = pyqtSignal(int)
+    error_signal = pyqtSignal(str)
 
     def __init__(self, paths, fmt, mode, size, quality):
         super().__init__()
@@ -75,7 +76,43 @@ class ConvertWorker(QThread):
             return f"x{self.size}"
         return None
 
-    def process_file(self, file_path):
+    def find_magick(self):
+        import shutil
+        magick_path = shutil.which("magick")
+        if magick_path:
+            return magick_path
+        for path in ["/opt/homebrew/bin/magick", "/usr/local/bin/magick"]:
+            if os.path.exists(path):
+                return path
+        return None
+
+    def run(self):
+        magick = self.find_magick()
+        if not magick:
+            self.error_signal.emit("ImageMagick not found. Please install: brew install imagemagick")
+            return
+
+        for path in self.paths:
+            if os.path.isdir(path):
+                for root, _, files in os.walk(path):
+                    for f in files:
+                        full = os.path.join(root, f)
+                        if self.is_valid(full):
+                            self.files.append(full)
+            else:
+                if self.is_valid(path):
+                    self.files.append(path)
+
+        total = len(self.files)
+        if total == 0:
+            return
+
+        for i, file_path in enumerate(self.files, start=1):
+            self.process_file(file_path, magick)
+            percent = int((i / total) * 100)
+            self.progress_signal.emit(percent)
+
+    def process_file(self, file_path, magick):
         base_dir = os.path.dirname(file_path)
         output_dir = os.path.join(base_dir, f"img2{self.fmt}")
         os.makedirs(output_dir, exist_ok=True)
@@ -83,7 +120,7 @@ class ConvertWorker(QThread):
         filename = os.path.splitext(os.path.basename(file_path))[0]
         output_path = os.path.join(output_dir, f"{filename}.{self.fmt}")
 
-        cmd = ["magick", file_path]
+        cmd = [magick, file_path]
         resize_arg = self.build_resize()
 
         if resize_arg:
@@ -91,10 +128,9 @@ class ConvertWorker(QThread):
 
         cmd += ["-quality", str(self.quality), output_path]
 
-        try:
-            subprocess.run(cmd, check=True)
-        except:
-            pass
+        result = subprocess.run(cmd, capture_output=True)
+        if result.returncode != 0:
+            print(f"Error: {result.stderr.decode()}")
 
 
 class Img2App(QWidget):
@@ -173,9 +209,14 @@ class Img2App(QWidget):
 
         self.worker = ConvertWorker(paths, fmt, mode, size, quality)
         self.worker.progress_signal.connect(self.update_progress)
+        self.worker.error_signal.connect(self.show_error)
 
         self.progress.setValue(0)
         self.worker.start()
+
+    def show_error(self, message):
+        from PyQt6.QtWidgets import QMessageBox
+        QMessageBox.warning(self, "Error", message)
 
     def update_progress(self, value):
         self.progress.setValue(value)
