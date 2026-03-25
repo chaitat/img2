@@ -163,5 +163,12 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+RAW-Samples/
+# Test RAW images
+
+# App specific
+homebrew-img2/
+images/
+imagemagick_formats*.csv
 
 # End of https://mrkandreev.name/snippets/gitignore-generator/#macOS,Python

@@ -52,17 +52,10 @@ class ConvertWorker(QThread):
     def is_valid(self, file_path):
         ext = os.path.splitext(file_path)[1].lower()
         return ext in [
-            ".jpg",
-            ".jpeg",
-            ".png",
-            ".webp",
-            ".avif",
-            ".tiff",
-            ".bmp",
-            ".gif",
-            ".ico",
-            ".cur",
-            ".svg",
+            ".jpg", ".jpeg",
+            ".png", ".webp", ".avif", ".heic", ".tiff", ".tif",
+            ".bmp", ".gif", ".ico", ".cur", ".svg",
+            ".ppm"
         ]
 
     def build_resize(self):
