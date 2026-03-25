@@ -28,27 +28,6 @@ class ConvertWorker(QThread):
         self.quality = quality
         self.files = []
 
-    def run(self):
-        for path in self.paths:
-            if os.path.isdir(path):
-                for root, _, files in os.walk(path):
-                    for f in files:
-                        full = os.path.join(root, f)
-                        if self.is_valid(full):
-                            self.files.append(full)
-            else:
-                if self.is_valid(path):
-                    self.files.append(path)
-
-        total = len(self.files)
-        if total == 0:
-            return
-
-        for i, file_path in enumerate(self.files, start=1):
-            self.process_file(file_path)
-            percent = int((i / total) * 100)
-            self.progress_signal.emit(percent)
-
     def is_valid(self, file_path):
         ext = os.path.splitext(file_path)[1].lower()
         return ext in [
