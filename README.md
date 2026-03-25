@@ -15,7 +15,11 @@ Image converter with drag & drop support.
 
 ## Installation
 
-### Homebrew (recommended)
+### Download .dmg (recommended)
+
+Download the latest release from [GitHub Releases](https://github.com/chaitat/img2/releases).
+
+### Homebrew
 
 ```bash
 brew install chaitat/homebrew-img2/img2
@@ -43,6 +47,12 @@ This will automatically install ImageMagick if not already installed.
 ## Usage
 
 ![ss](images/ss.png)
+
+**Supported Input Formats:**  
+jpg, jpeg, png, webp, avif, heic, tiff, gif, bmp, ico, cur, svg, and 40+ RAW formats (cr2, cr3, crw, dng, nef, nrw, orf, arw, raf, rw2, raw, pef, mrw, x3f, srw, sr2, srf, etc.)
+
+**Output Formats:**  
+jpg, png, gif, webp, avif, ico
 
 1. Select output format (jpg, png, gif, webp, avif, ico)
 2. Set quality (1-100)
