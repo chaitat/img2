@@ -55,7 +55,18 @@ class ConvertWorker(QThread):
             ".jpg", ".jpeg",
             ".png", ".webp", ".avif", ".heic", ".tiff", ".tif",
             ".bmp", ".gif", ".ico", ".cur", ".svg",
-            ".ppm"
+            ".cr2", ".cr3", ".crw", ".dng",
+            ".nef", ".nrw",
+            ".orf", ".arw", ".raf",
+            ".rw2", ".raw", ".rw1",
+            ".pef", ".mrw", ".x3f",
+            ".srw", ".sr2", ".srf",
+            ".kdc", ".3fr", ".mos", ".mef", ".mdc",
+            ".erf", ".dcr", ".ppm",
+            ".ari", ".bay", ".bmq", ".cap", ".cine",
+            ".cs1", ".dc2", ".gpr", ".fff", ".exr",
+            ".ia", ".iiq", ".k25", ".kc2", ".pxn",
+            ".qtk", ".rdc", ".sti",
         ]
 
     def build_resize(self):
