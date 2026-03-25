@@ -49,7 +49,7 @@ This will automatically install ImageMagick if not already installed.
 ![ss](images/ss.png)
 
 **Supported Input Formats:**  
-jpg, jpeg, png, webp, avif, heic, tiff, gif, bmp, ico, cur, svg, and 40+ RAW formats (cr2, cr3, crw, dng, nef, nrw, orf, arw, raf, rw2, raw, pef, mrw, x3f, srw, sr2, srf, etc.)
+jpg, jpeg, png, webp, avif, heic, tiff, gif, bmp, ico, cur, svg, ppm
 
 **Output Formats:**  
 jpg, png, gif, webp, avif, ico
