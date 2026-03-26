@@ -22,7 +22,7 @@ Download the latest release from [GitHub Releases](https://github.com/chaitat/im
 ### Homebrew
 
 ```bash
-brew install chaitat/img2/img2
+brew install chaitat/homebrew-img2/img2
 ```
 
 This will automatically install ImageMagick if not already installed.
