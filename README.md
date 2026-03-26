@@ -7,7 +7,7 @@
 
 <p align="center">
   <a href="https://buymeacoffee.com/chaitat">
-    <img src="bmc.png" width="150" alt="Buy Me a Coffee"/>
+    <img src="images/bmc.png" width="150" alt="Buy Me a Coffee"/>
   </a>
 </p>
 

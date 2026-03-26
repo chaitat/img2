@@ -168,7 +168,6 @@ RAW-Samples/
 
 # App specific
 homebrew-img2/
-images/
 imagemagick_formats*.csv
 
 # End of https://mrkandreev.name/snippets/gitignore-generator/#macOS,Python
