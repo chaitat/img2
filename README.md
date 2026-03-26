@@ -1,31 +1,31 @@
-```
-░██                            ░██████  
-                              ░██   ░██ 
-░██░█████████████   ░████████       ░██ 
-░██░██   ░██   ░██ ░██    ░██   ░█████  
-░██░██   ░██   ░██ ░██    ░██  ░██      
-░██░██   ░██   ░██ ░██   ░███ ░██       
-░██░██   ░██   ░██  ░█████░██ ░████████ 
-                          ░██           
-                    ░███████            
-```
-# img2
+![logo](images/app-banner.jpg)
 
-Image converter with drag & drop support.
+<div align="center">
+  <h1>Img2 - Simple image converter</h1>
+  <p>Simple image converter app allow you to quickly change file formats (jpg, jpeg, png, webp, avif, heic, tiff, gif, bmp, ico, cur, svg, ppm) into (jpg, png, gif, webp, avif, ico), resize, or compress images directly on your Mac. Just drop your images or folder into the app.</p>
+</div>
+
+<p align="center">
+  <a href="https://buymeacoffee.com/chaitat">
+    <img src="bmc.png" width="150" alt="Buy Me a Coffee"/>
+  </a>
+</p>
+
+
 
 ## Installation
 
-### Download .dmg (recommended)
-
-Download the latest release from [GitHub Releases](https://github.com/chaitat/img2/releases).
-
-### Homebrew
+### Homebrew (recommended)
 
 ```bash
 brew install chaitat/homebrew-img2/img2
 ```
 
 This will automatically install ImageMagick if not already installed.
+
+### Download .dmg 
+
+Download the latest release from [GitHub Releases.](https://github.com/chaitat/img2/releases)
 
 ### Manual
 
@@ -44,15 +44,14 @@ This will automatically install ImageMagick if not already installed.
    python img2.py
    ```
 
+### Update app version
+```bash
+brew upgrade img2
+```
+
 ## Usage
 
 ![ss](images/ss.png)
-
-**Supported Input Formats:**  
-jpg, jpeg, png, webp, avif, heic, tiff, gif, bmp, ico, cur, svg, ppm
-
-**Output Formats:**  
-jpg, png, gif, webp, avif, ico
 
 1. Select output format (jpg, png, gif, webp, avif, ico)
 2. Set quality (1-100)
