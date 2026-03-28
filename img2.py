@@ -50,6 +50,12 @@ MAGICK_PATHS = [
 ]
 
 
+def resource_path(relative_path: str) -> str:
+    if hasattr(sys, '_MEIPASS'):
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.join(os.path.dirname(__file__), relative_path)
+
+
 class ConvertWorker(QThread):
     progress_signal = pyqtSignal(int)
     error_signal = pyqtSignal(str)
@@ -168,7 +174,7 @@ class AboutDialog(QDialog):
         self.setWindowTitle("About img2")
         self.setFixedSize(300, 350)
 
-        icon_path = os.path.join(os.path.dirname(__file__), "images", "icon-128.png")
+        icon_path = resource_path(os.path.join("images", "icon-128.png"))
         
         layout = QVBoxLayout()
         
@@ -192,7 +198,7 @@ class AboutDialog(QDialog):
         desc.setStyleSheet("color: #888; margin-bottom: 10px;")
         layout.addWidget(desc)
 
-        bmc_path = os.path.join(os.path.dirname(__file__), "images", "bmc-s.png")
+        bmc_path = resource_path(os.path.join("images", "bmc-s.png"))
         if os.path.exists(bmc_path):
             self.bmc_label = QLabel()
             self.bmc_label.setPixmap(QPixmap(bmc_path).scaled(250, 70, Qt.AspectRatioMode.KeepAspectRatio))

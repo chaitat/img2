@@ -39,8 +39,9 @@ jobs:
           create-dmg \
             --volname "img2" \
             --window-pos 200 200 \
+            --app-drop-link 350 100 \
+            --icon "img2.app" 100 100 \
             --icon-size 100 \
-            --app-drop-link 200 300 \
             "img2.dmg" \
             "dist/img2.app"
       
