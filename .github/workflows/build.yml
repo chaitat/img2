@@ -38,8 +38,9 @@ jobs:
           brew install create-dmg || true
           create-dmg \
             --volname "img2" \
-            --icon "dist/img2.app" 425 100 \
-            --app-drop-link 425 185 \
+            --window-pos 200 200 \
+            --icon-size 100 \
+            --app-drop-link 200 300 \
             "img2.dmg" \
             "dist/img2.app"
       
